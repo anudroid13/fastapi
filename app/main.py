@@ -1,17 +1,10 @@
-from typing import Optional
-
-from fastapi import Body, FastAPI, Response, status, HTTPException
-from pydantic import BaseModel
+from fastapi import Body, FastAPI, status, HTTPException
 
 from random import randrange
 
-app = FastAPI()
+from .models import Post
 
-class Post(BaseModel):
-    title: str
-    content: str
-    published: bool = True
-    rating: Optional[int] = None
+app = FastAPI()
 
 my_posts = [
         {"id": 1, "title": "First Post", "content": "This is the first post.", "published": True, "rating": 5},
